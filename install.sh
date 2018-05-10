@@ -2,15 +2,13 @@
 
 comment="##cd-alias-installer"
 file="${HOME}/.bashrc"
-files="\e[0;33m~/.bashrc\e[0m, \e[0;33m~/.bash_profile\e[0m, \e[0;33m~/.profile\e[0m"
-
 [ ! -f "${file}" ] && file="${HOME}/.bash_profile"
 [ ! -f "${file}" ] && file="${HOME}/.profile"
-[ ! -f "${file}" ] && echo -e "\e[0;31mERROR:\e[0m run command file(s) (${files}) not found" && exit 1
+[ ! -f "${file}" ] && echo -e "ERROR: run command file(s) (~/.bashrc, ~/.bash_profile, ~/.profile) not found" && exit 1
 
 line=$(grep "${comment}$" ${file})
-[ -n "${line}" ] && echo -e "\e[0;35mWARN:\e[0m cd-alias already installed" && exit 1
+[ -n "${line}" ] && echo -e "WARN: cd-alias already installed" && exit 1
 
-echo -e "\e[0;32mINFO:\e[0m installing cd-alias to rc file (\e[0;34m${file}\e[0m)"
-echo -e "\nsource $(pwd)/cd-alias.sh ${comment}\n" >> ${file}
-echo -e "\e[0;32mINFO:\e[0m run \"\e[0;34msource ${file}\e[0m\" to apply installation in current session"
+echo "INFO: installing cd-alias to rc file (${file})"
+echo "source $(pwd)/cd-alias.sh ${comment}" >> ${file}
+echo "INFO: run \"source ${file}\" to apply installation in current session"
