@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 comment="##cd-alias-installer"
-file="${HOME}/.bash_profile"
+file="${HOME}/.bashrc"
 files="\e[0;33m~/.bashrc\e[0m, \e[0;33m~/.bash_profile\e[0m, \e[0;33m~/.profile\e[0m"
 
-[ ! -f "${file}" ] && file="${HOME}/.bashrc"
+[ ! -f "${file}" ] && file="${HOME}/.bash_profile"
 [ ! -f "${file}" ] && file="${HOME}/.profile"
 [ ! -f "${file}" ] && echo -e "\e[0;31mERROR:\e[0m run command file(s) (${files}) not found" && exit 1
 
