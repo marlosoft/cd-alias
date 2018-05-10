@@ -37,8 +37,8 @@ function cd() {
             return 0
         fi
 
-        local _path=$(pwd -P)
-        [ -n "$3" ] && _path=$(cd $3 &>/dev/null && pwd -P || echo "")
+        local _path=$(pwd)
+        [ -n "$3" ] && _path=$(cd $3 &>/dev/null && pwd || echo "")
         if [ -z "${_path}" ]; then
             echo -e "\e[0;31mERROR:\e[0m path or directory \"\e[0;33m$3\e[0m\" does not exists"
             return 1
